@@ -17,10 +17,6 @@ import org.springframework.web.client.HttpClientErrorException.UnprocessableEnti
 import org.springframework.web.client.RestTemplate;
 
 
-//@ExtendWith(SpringExtension.class)
-//@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
-    //classes = com.drosa.inditex.connect.boot.InditexConnectAdapter.class)
-
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
     classes = com.drosa.inditex.connect.boot.InditexConnectAdapter.class)
 class PriceControllerTest {
@@ -161,11 +157,6 @@ class PriceControllerTest {
 
   @Test
   void test6_shouldFail() {
-    // Given
-    final LocalDateTime startDate = LocalDateTime.parse("2020-06-15-16.00.00", formatter);
-    final LocalDateTime endDate = LocalDateTime.parse("2020-12-31-23.59.59", formatter);
-
-
     // Call and Verify
     assertThrows(UnprocessableEntity.class, () -> {
       restTemplate.getForObject(baseUrl.concat(TEST6_URL), ProductPriceDto.class);
