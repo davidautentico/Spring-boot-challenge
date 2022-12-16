@@ -1,0 +1,10 @@
+#server
+server:
+  port: 9005
+#Connection profiles
+spring:
+  profiles:
+    active: dev
+  h2:
+    console:
+      enabled: true
