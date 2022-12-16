@@ -14,17 +14,17 @@ import lombok.ToString;
 @EqualsAndHashCode
 public class ProductPriceDto implements Serializable {
 
-  int productId;
+  private int productId;
 
-  int brandId;
+  private int brandId;
 
-  int tariffRate;
+  private int tariffRate;
 
-  LocalDateTime startDate;
+  private LocalDateTime startDate;
 
-  LocalDateTime endDate;
+  private LocalDateTime endDate;
 
-  BigDecimal price;
+  private BigDecimal price;
 
   public ProductPriceDto(int productId, int brandId, int tariffRate, LocalDateTime startDate, LocalDateTime endDate, BigDecimal price){
     this.productId = productId;

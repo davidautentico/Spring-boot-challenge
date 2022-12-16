@@ -13,22 +13,22 @@ import lombok.ToString;
 @Builder
 public class ProductPrice {
 
-  int productId;
+  private int productId;
 
-  int brandId;
+  private int brandId;
 
-  int tariffRate;
+  private int tariffRate;
 
-  int priority;
+  private int priority;
 
-  LocalDateTime startDate;
+  private LocalDateTime startDate;
 
-  LocalDateTime endDate;
+  private LocalDateTime endDate;
 
-  BigDecimal price;
+  private BigDecimal price;
 
-  LocalDateTime lastUpdateDate;
+  private LocalDateTime lastUpdateDate;
 
-  String lastUpdateBy;
+  private String lastUpdateBy;
 
 }
