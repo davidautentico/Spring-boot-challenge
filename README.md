@@ -7,4 +7,8 @@ Some integration tests are provided.
 
 Security has been simply and has a "permit all" level access.
 
-Main class: com.drosa.inditex.connect.boot.InditexConnectAdapter
+Framework: Spring boot
+
+Build tool: Maven
+
+Run tests (from parent folder): mvn clean test
