@@ -3,12 +3,15 @@ Inditex challenge
 
 The service provides an endpoint to retrieve pre-loaded data about product prices.
 
-Packages:
+The model followed is similar to and hexagonal model.
 
+Packages:
 - Boot: contains main class
 - Api: contains endpoint
 - Domain: contains entities and use case
-- Infrastructure: contains H2 repository implementation
+- Infrastructure: contains repository implementations
+
+Api receives requests from external users and it call uses cases through interfaces. Use cases contain the business logic and could communicate with other external microservices o call repositories. The infrastructure layer contains repository implementations.
 
 Some integration tests are provided.
 
