@@ -1,7 +1,7 @@
 package com.drosa.inditex.connect.api.rest.exceptions;
 
+import com.drosa.inditex.connect.domain.exceptions.InditexConnectServiceInvalidParametersException;
 import com.drosa.inditex.connect.domain.exceptions.InditexConnectServicePriceNotFoundException;
-import com.drosa.inditex.connect.domain.exceptions.InditexConnectServiceRepositoryException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,12 +14,14 @@ import org.springframework.web.context.request.WebRequest;
 public final class GlobalControllerExceptionHandler {
 
   @ExceptionHandler(InditexConnectServicePriceNotFoundException.class)
-  public ResponseEntity<?> handleInditexConnectServicePriceNotFoundException(InditexConnectServicePriceNotFoundException exception, WebRequest request) {
+  public ResponseEntity<?> handleInditexConnectServicePriceNotFoundException(InditexConnectServicePriceNotFoundException exception,
+      WebRequest request) {
     return new ResponseEntity(new InditexConnectServiceErrorResponse(request.getParameterMap(), "error"), HttpStatus.NOT_FOUND);
   }
 
-  @ExceptionHandler(InditexConnectServiceRepositoryException.class)
-  public ResponseEntity<?> handleInditexConnectServiceRepositoryException(InditexConnectServiceRepositoryException exception, WebRequest request) {
+  @ExceptionHandler(InditexConnectServiceInvalidParametersException.class)
+  public ResponseEntity<?> handleInditexConnectServiceInvalidParametersException(InditexConnectServiceInvalidParametersException exception,
+      WebRequest request) {
     return new ResponseEntity(new InditexConnectServiceErrorResponse(request.getParameterMap(), "error"), HttpStatus.UNPROCESSABLE_ENTITY);
   }
 

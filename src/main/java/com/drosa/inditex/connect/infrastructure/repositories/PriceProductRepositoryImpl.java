@@ -5,6 +5,8 @@ import com.drosa.inditex.connect.domain.repositories.PriceProductRepository;
 import java.time.LocalDateTime;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.dao.DataAccessException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -42,9 +44,9 @@ public class PriceProductRepositoryImpl implements PriceProductRepository {
                   .lastUpdateBy(rs.getString("Last_Update_By"))
                   .build()
       );
-    } catch (Exception e) {
+    } catch (DataAccessException e) {
       log.error("Error reading from database for values brandId {}, productId {} and date {}", brandId, productId, date);
-      throw e;
+      return null;
     }
   }
 }

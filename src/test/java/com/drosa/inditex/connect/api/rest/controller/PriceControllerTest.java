@@ -13,6 +13,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.web.client.HttpClientErrorException.NotFound;
 import org.springframework.web.client.HttpClientErrorException.UnprocessableEntity;
 import org.springframework.web.client.RestTemplate;
 
@@ -23,17 +24,19 @@ class PriceControllerTest {
 
   private static RestTemplate restTemplate = null;
 
-  private final String TEST1_URL = "price?brandId=1&productId=35455&priceDate=2020-06-14-10.00.00";
+  private final String TEST1_URL = "price?brandId=1&productId=35455&priceDate=2020-06-14T10:00:00Z";
 
-  private final String TEST2_URL = "price?brandId=1&productId=35455&priceDate=2020-06-14-16.00.00";
+  private final String TEST2_URL = "price?brandId=1&productId=35455&priceDate=2020-06-14T16:00:00Z";
 
-  private final String TEST3_URL = "price?brandId=1&productId=35455&priceDate=2020-06-14-21.00.00";
+  private final String TEST3_URL = "price?brandId=1&productId=35455&priceDate=2020-06-14T21:00:00Z";
 
-  private final String TEST4_URL = "price?brandId=1&productId=35455&priceDate=2020-06-15-10.00.00";
+  private final String TEST4_URL = "price?brandId=1&productId=35455&priceDate=2020-06-15T10:00:00Z";
 
-  private final String TEST5_URL = "price?brandId=1&productId=35455&priceDate=2020-06-16-21.00.00";
+  private final String TEST5_URL = "price?brandId=1&productId=35455&priceDate=2020-06-16T21:00:00Z";
 
-  private final String TEST6_URL = "price?brandId=2&productId=35455&priceDate=2020-06-16-21.00.00";
+  private final String TEST6_NOT_FOUND_URL = "price?brandId=2&productId=35455&priceDate=2020-06-16T21:00:00Z";
+
+  private final String TEST6_INVALID_PARAMETERS_URL = "price?brandId=-2&productId=35455&priceDate=2020-06-16T21:00:00Z";
 
   private final int PRODUCT_ID = 35455;
 
@@ -61,7 +64,7 @@ class PriceControllerTest {
 
   @BeforeEach
   public void setUp() {
-    baseUrl = baseUrl.concat(":").concat(port + "").concat("/inditex/");
+    baseUrl = baseUrl.concat(":").concat(port + "").concat("/inditex/api/");
   }
 
   @Test
@@ -156,10 +159,18 @@ class PriceControllerTest {
   }
 
   @Test
-  void test6_shouldFail() {
+  void test6_withNonExistingPrices_shouldFail() {
+    // Call and Verify
+    assertThrows(NotFound.class, () -> {
+      restTemplate.getForObject(baseUrl.concat(TEST6_NOT_FOUND_URL), ProductPriceDto.class);
+    });
+  }
+
+  @Test
+  void test6_withInvalidParameters_shouldFail() {
     // Call and Verify
     assertThrows(UnprocessableEntity.class, () -> {
-      restTemplate.getForObject(baseUrl.concat(TEST6_URL), ProductPriceDto.class);
+      restTemplate.getForObject(baseUrl.concat(TEST6_INVALID_PARAMETERS_URL), ProductPriceDto.class);
     });
   }
 }
