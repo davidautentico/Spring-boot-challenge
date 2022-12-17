@@ -33,6 +33,10 @@ Framework: Spring boot
 
 Build tool: Maven
 
-Run tests (from parent folder): mvn clean test
+Run tests (from parent folder): 
 
-Run app (from parent folder):  mvn spring-boot:run
+- mvn clean test
+
+Run app (from parent folder):  
+
+- mvn spring-boot:run
