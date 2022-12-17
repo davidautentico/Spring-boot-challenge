@@ -27,7 +27,7 @@ OpenApi url:
 
 Some integration tests are provided.
 
-Security has been simply and has a "permit all" level access.
+Security has been simplified and has a "permit all" level access.
 
 Framework: Spring boot
 
