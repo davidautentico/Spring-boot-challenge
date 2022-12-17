@@ -16,7 +16,12 @@ Api receives requests from external users and it call uses cases through interfa
 Scalability issues:
 
 - Exceptions are managed by @ControllerAdvice, this way it is avoided to use try-catch blocks to capture each new endpoint exceptions
-- The paradigm used is blocking. Since it is been using an H2 database, if moving to a mongodb a reactive framework such as webflux/reactor could be used.
+- The paradigm used is blocking. Since it is been using an H2 database, if moving to a mongodb, a reactive framework such as webflux/reactor could be considered.
+- Cache is not considered. That is because of the datetime as input parameter. It will result in a bunch of missed hits.
+
+OpenApi url:
+
+- http://localhost:9005/swagger-ui/index.html#/price-controller/getProductPrice
 
 Some integration tests are provided.
 
@@ -27,3 +32,5 @@ Framework: Spring boot
 Build tool: Maven
 
 Run tests (from parent folder): mvn clean test
+
+Run app (from parent folder):  mvn spring-boot:run
