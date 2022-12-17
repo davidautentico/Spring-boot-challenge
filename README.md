@@ -6,12 +6,13 @@ The service provides an endpoint to retrieve pre-loaded data about product price
 The model followed is similar to and hexagonal model.
 
 Packages:
-- Boot: contains main class
-- Api: contains endpoint
+- Boot: contains the main class
+- Api: contains the endpoint
 - Domain: contains entities and use case
 - Infrastructure: contains repository implementations
 
 Api receives requests from external users and it call uses cases through interfaces. Use cases contain the business logic and could communicate with other external microservices o call repositories. The infrastructure layer contains repository implementations.
+Since domain is decoupled from infrastructure implementations, databases and other repositories could be migrated to another technology such as mongoDB, couchBase..
 
 Scalability issues:
 
