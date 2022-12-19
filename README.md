@@ -1,4 +1,4 @@
-# Inditex_exercise_2022
+# Inditex exercise 2022
 Inditex challenge
 
 The service provides an endpoint to retrieve pre-loaded data about product prices.
@@ -11,7 +11,7 @@ Packages:
 - Domain: contains entities and use case
 - Infrastructure: contains repository implementations
 
-Api receives requests from external users and it call uses cases through interfaces. Use cases contain the business logic and could communicate with other external microservices o could call repositories. The infrastructure layer contains repository implementations.
+Api receives requests from external users and it calls uses cases through interfaces. Use cases contain the business logic and could communicate with other external microservices o could call repositories. The infrastructure layer contains repository implementations.
 Since domain is decoupled from infrastructure implementations, databases and other repositories could be migrated to another technology such as mongoDB, couchBase..
 Furthermore each piece (api, domain, infrastructure) could be tested just mocking the other interfaces.
 
