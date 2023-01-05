@@ -1,4 +1,4 @@
-package com.drosa.inditex.connect.usecases;
+package com.drosa.inditex.connect.domain.usecases;
 
 import com.drosa.inditex.connect.domain.entities.ProductPrice;
 import com.drosa.inditex.connect.domain.exceptions.InditexConnectServiceInvalidParametersException;

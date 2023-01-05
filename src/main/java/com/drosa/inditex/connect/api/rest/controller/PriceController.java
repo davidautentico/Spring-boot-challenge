@@ -5,7 +5,7 @@ import com.drosa.inditex.connect.api.rest.mappers.ProductPriceMapper;
 import com.drosa.inditex.connect.domain.entities.ProductPrice;
 import com.drosa.inditex.connect.domain.exceptions.InditexConnectServiceInvalidParametersException;
 import com.drosa.inditex.connect.domain.exceptions.InditexConnectServicePriceNotFoundException;
-import com.drosa.inditex.connect.usecases.GetPriceByProductAndDateUseCase;
+import com.drosa.inditex.connect.domain.usecases.GetPriceByProductAndDateUseCase;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.v3.oas.annotations.media.Content;

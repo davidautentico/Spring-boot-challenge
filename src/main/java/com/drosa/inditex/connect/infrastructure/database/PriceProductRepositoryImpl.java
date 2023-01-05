@@ -1,4 +1,4 @@
-package com.drosa.inditex.connect.infrastructure.repositories;
+package com.drosa.inditex.connect.infrastructure.database;
 
 import com.drosa.inditex.connect.domain.entities.ProductPrice;
 import com.drosa.inditex.connect.domain.repositories.PriceProductRepository;
@@ -6,7 +6,6 @@ import java.time.LocalDateTime;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.DataAccessException;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 

@@ -20,7 +20,7 @@ import org.springframework.web.client.RestTemplate;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
     classes = com.drosa.inditex.connect.boot.InditexConnectAdapter.class)
-class PriceControllerTest {
+class PriceControllerIntegrationTests {
 
   private static RestTemplate restTemplate = null;
 
