@@ -1,5 +1,5 @@
-# Inditex exercise 2022
-Inditex challenge
+# Challenge
+Challenge
 
 The service provides an endpoint to retrieve pre-loaded data about product prices.
 
